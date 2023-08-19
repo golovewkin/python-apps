@@ -3,20 +3,20 @@
 <head>
     <title>Weather App</title>
 </head>
-<body>
-    <h1>Weather App</h1>
-    <form method="get" action="">
-        {{ form.as_p }}
-        <button type="submit">Get Weather</button>
-    </form>
-    {% if city %}
-        <h2>Weather in {{ city }}</h2>
-        <p>Temperature: {{ temperature }}°C</p>
-        <p>Condition: {{ condition }}</p>
-    {% endif %}
-    {% if form.errors %}
-        <p class="error">Please correct the errors below:</p>
-        {{ form.errors }}
-    {% endif %}
-</body>
+{#<body>#}
+{#    <h1>Weather App</h1>#}
+{#    <form method="get" action="">#}
+{#        {{ form.as_p }}#}
+{#        <button type="submit">Get Weather</button>#}
+{#    </form>#}
+{#    {% if city %}#}
+{#        <h2>Weather in {{ city }}</h2>#}
+{#        <p>Temperature: {{ temperature }}°C</p>#}
+{#        <p>Condition: {{ condition }}</p>#}
+{#    {% endif %}#}
+{#    {% if form.errors %}#}
+{#        <p class="error">Please correct the errors below:</p>#}
+{#        {{ form.errors }}#}
+{#    {% endif %}#}
+{#</body>#}
 </html>
