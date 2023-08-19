@@ -1,3 +1,4 @@
-# python-weather
+## python apps
 
-This is a pet project. It allows a user to get the weather in the specific town
+# weather app
+It allows a user to get the weather in the specific town
