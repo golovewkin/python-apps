@@ -8,6 +8,7 @@ def get_weather(request):
 
 
 def get_weather_by_city(request, city):
+    return HttpResponse(city)
     city = None
     if city is not None:
         city = request.GET.get('city', city)  # Default city if not provided
