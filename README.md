@@ -1,4 +1,4 @@
-## python apps
+# python apps
 
-# weather app
+## weather app
 It allows a user to get the weather in the specific town
