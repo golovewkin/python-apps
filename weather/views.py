@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+# from django.urls import reverse
 import requests
 
+
+# redirect = reverse('city', args=['city'])
 
 def get_weather(request):
     return render(request, 'weather/weather.html', {})
