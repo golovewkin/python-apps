@@ -11,10 +11,10 @@ def get_weather(request):
 
 
 def get_weather_by_city(request, city):
-    return HttpResponse(city)
-    city = None
+    # return HttpResponse(city)
+    # city = None
     if city is not None:
-        city = request.GET.get('city', city)  # Default city if not provided
+        # city = request.GET.get('city', city)  # Default city if not provided
         # TODO get key from settings
         api_key = 'settings.WEATHER_API_KEY'
         api_url = 'settings.WEATHER_API_UR'
@@ -37,4 +37,4 @@ def get_weather_by_city(request, city):
     # else:
     #     return HttpResponse('Error fetching weather data')
 
-    return render(request, 'weather/weather.html', {})
+    return render(request, 'weather/weather.html', {'city': city})
