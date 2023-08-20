@@ -3,27 +3,35 @@
 <html>
 <head>
     <title>Weather App</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'weather/weather.css' %}">
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
-<h1>Weather App2</h1>
-<span>{{ city }}</span>
-<b>{{ city }}</b>
-{#<form method="get" action="">#}
-{#    {{ form.as_p }}#}
-{#    <button type="submit">Get Weather</button>#}
-{#</form>#}
-{#{% if city %}#}
-{#    <h2>Weather in {{ city }}</h2>#}
-{#    <p>Temperature: {{ temperature }}°C</p>#}
-{#    <p>Condition: {{ condition }}</p>#}
-{#{% endif %}#}
-{#{% if form.errors %}#}
-{#    <p class="error">Please correct the errors below:</p>#}
-{#    {{ form.errors }}#}
-{#{% endif %}#}
+<h1>Weather App</h1>
+{#<p>{% url 'city' city %}</p>#}
+{% if city is None %}
+    <h2>choose a city</h2>
+{% else %}
+    <h2>choose a city else</h2>
+{% endif %}
+<form method="get" action="">
+    {{ form.as_p }}
+    <button type="submit">Get Weather</button>
+</form>
+{% if city %}
+    <h2>Weather in {{ city }}</h2>
+    <p>Temperature: {{ temperature }}°C</p>
+    <p>Condition: {{ condition }}</p>
+{% endif %}
+{% if form.errors %}
+    <p class="error">Please correct the errors below:</p>
+    {{ form.errors }}
+{% endif %}
 </body>
 </html>
