@@ -1,21 +1,31 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 import requests
+from local_settings import API_KEY
 
 
-def get_weather(request):
-    return HttpResponse('hi')
-    city = request.GET.get('city', 'New York')  # Default city if not provided
-    api_key = 'settings.WEATHER_API_KEY'
-    api_url = 'settings.WEATHER_API_UR'
+def get_weather_by_city(request):
+    city = request.GET.get("city")
+    context = {
+        'city': city,
+        'error': '',
+        'temperature': '',
+        'condition': '',
+    }
 
-    # response = requests.get(api_url, params={'key': api_key, 'q': city})
-    # weather_data = response.json()
+    if context['city'] is not None:
+        try:
+            # TODO get key from settings
+            api_key = 'settings.WEATHER_API_KEY'
+            api_url = f'https://api.openweathermap.org/data/3.0/onecall?q={city}&appid={API_KEY}'
 
-    # context = {
-    #     'city': city,
-    #     'temperature': weather_data['current']['temp_c'],
-    #     'condition': weather_data['current']['condition']['text'],
-    # }
+            response = requests.get(api_url, params={'key': api_key, 'q': city})
+            data = response.json()
+            if response.status_code == 200:
+                temp = data['main']['temp']
+                desc = data['weather'][0]['description']
+            else:
+                raise Exception(data)
+        except Exception as error:
+            context['error'] = error
 
-    return render(request, 'weather/weather.html', {})
+    return render(request, 'weather/weather.html', context)

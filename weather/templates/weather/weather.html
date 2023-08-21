@@ -1,0 +1,65 @@
+<!-- weather/templates/weather/weather.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Weather App</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'weather/weather.css' %}">
+</head>
+<body>
+<div class="container">
+    <section class="row">
+        <h3 class="white-text center-align z-depth-3 teal lighten-2"><b>Weather App</b></h3>
+    </section>
+    <section class="row">
+        <form action="">
+            <div class="row">
+                <div class="col s5 offset-s3">
+                    <span class="flow-text">
+                        <input name="city" value="{{ city }}" placeholder="Enter a city name" id="city" type="text"
+                               class="validate">
+                        <label for="city">City</label>
+                </span>
+                </div>
+                <div class="col s2">
+                    <button class="waves-effect waves-light btn btn-big">Submit<i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </div>
+        </form>
+        <div class="col s12">
+            {% if error %}
+                <p class="red-text error center-align">{{ error }}</p>
+            {% endif %}
+        </div>
+    </section>
+</div>
+
+{#<p>{% url 'city' city %}</p>#}
+{#{% if city is None %}#}
+{#    <h2>choose a city</h2>#}
+{#{% else %}#}
+{#    <h2>choose a city else</h2>#}
+{#{% endif %}#}
+{#<form method="get" action="">#}
+{#    {{ form.as_p }}#}
+{#    <button type="submit">Get Weather</button>#}
+{#</form>#}
+{#{% if city %}#}
+{#    <h2>Weather in {{ city }}</h2>#}
+{#    <p>Temperature: {{ temperature }}°C</p>#}
+{#    <p>Condition: {{ condition }}</p>#}
+{#{% endif %}#}
+
+
+</body>
+</html>
