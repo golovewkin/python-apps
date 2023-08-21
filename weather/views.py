@@ -4,15 +4,9 @@ from django.http import HttpResponse
 import requests
 
 
-# redirect = reverse('city', args=['city'])
-
-def get_weather(request):
-    return render(request, 'weather/weather.html', {})
-
-
-def get_weather_by_city(request, city):
+def get_weather_by_city(request):
     # return HttpResponse(city)
-    # city = None
+    city = request.GET.get("city")
     if city is not None:
         # city = request.GET.get('city', city)  # Default city if not provided
         # TODO get key from settings
