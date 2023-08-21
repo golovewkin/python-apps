@@ -1,6 +1,6 @@
 <!-- weather/templates/weather/weather.html -->
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Weather App</title>
 
@@ -13,31 +13,47 @@
     <link rel="stylesheet" href="{% static 'weather/weather.css' %}">
 </head>
 <body>
-<h1>Weather App</h1>
-{#<p>{% url 'city' city %}</p>#}
-{% if city is None %}
-    <h2>choose a city</h2>
-{% else %}
-    <h2>choose a city else</h2>
-{% endif %}
-<form method="get" action="">
-    {{ form.as_p }}
-    <button type="submit">Get Weather</button>
-</form>
-{% if city %}
-    <h2>Weather in {{ city }}</h2>
-    <p>Temperature: {{ temperature }}°C</p>
-    <p>Condition: {{ condition }}</p>
-{% endif %}
-{% if form.errors %}
-    <p class="error">Please correct the errors below:</p>
-    {{ form.errors }}
-{% endif %}
-<div class="row">
-    <div class="col s5 offset-s3"><span class="flow-text">
-        <input placeholder="Enter a city name" id="first_name" type="text" class="validate">
-        <label for="first_name">City</label>
-    </span></div>
+<div class="container">
+    <section class="row">
+        <h3 class="white-text center-align z-depth-3 teal lighten-2"><b>Weather App</b></h3>
+    </section>
+    <section class="row">
+        <form action="">
+            <div class="row">
+                <div class="col s5 offset-s3">
+                    <span class="flow-text">
+                        <input name="city" placeholder="Enter a city name" id="city" type="text" class="validate">
+                        <label for="city">City</label>
+                </span>
+                </div>
+                <div class="col s2">
+                    <button class="waves-effect waves-light btn btn-big">submit</button>
+                </div>
+            </div>
+        </form>
+    </section>
 </div>
+
+{#<p>{% url 'city' city %}</p>#}
+{#{% if city is None %}#}
+{#    <h2>choose a city</h2>#}
+{#{% else %}#}
+{#    <h2>choose a city else</h2>#}
+{#{% endif %}#}
+{#<form method="get" action="">#}
+{#    {{ form.as_p }}#}
+{#    <button type="submit">Get Weather</button>#}
+{#</form>#}
+{#{% if city %}#}
+{#    <h2>Weather in {{ city }}</h2>#}
+{#    <p>Temperature: {{ temperature }}°C</p>#}
+{#    <p>Condition: {{ condition }}</p>#}
+{#{% endif %}#}
+{#{% if form.errors %}#}
+{#    <p class="error">Please correct the errors below:</p>#}
+{#    {{ form.errors }}#}
+{#{% endif %}#}
+
+
 </body>
 </html>
