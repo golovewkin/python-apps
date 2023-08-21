@@ -20,7 +20,7 @@ def get_weather_by_city(request):
                 print(f'Temperature: {temp} K')
                 print(f'Description: {desc}')
             else:
-                raise Exception("Sorry, something went wrong, can not get the data")
+                raise Exception("Sorry, request data error")
         except:
             print("An exception occurred")
 
