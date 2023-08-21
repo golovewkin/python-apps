@@ -8,8 +8,7 @@ def get_weather_by_city(request):
     context = {
         'city': city,
         'error': '',
-        'temperature': '',
-        'condition': '',
+        'temp': '',
     }
 
     if context['city'] is not None:
