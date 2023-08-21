@@ -4,7 +4,7 @@ import requests
 
 
 def get_weather_by_city(request):
-    city = request.GET.get("city")[0]
+    city = request.GET.get("city")
     context = {
         'city': city,
         'error': '',
@@ -26,7 +26,7 @@ def get_weather_by_city(request):
                 print(f'Temperature: {temp} K')
                 print(f'Description: {desc}')
             else:
-                raise Exception("Sorry, request data error")
+                raise Exception(response.json())
         except Exception as error:
             context['error'] = error
 
