@@ -14,11 +14,9 @@ def get_weather_by_city(request):
 
     if context['city'] is not None:
         try:
-            # TODO get key from settings
-            api_key = 'settings.WEATHER_API_KEY'
             api_url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}'
 
-            response = requests.get(api_url, params={'key': api_key, 'q': city})
+            response = requests.get(api_url, params={'key': API_KEY, 'q': city})
             data = response.json()
             if response.status_code == 200:
                 context['temp'] = round((data['main']['temp'] - 32) * 5 / 9)
