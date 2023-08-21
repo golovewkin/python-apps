@@ -36,6 +36,11 @@
                 </div>
             </div>
         </form>
+        <div class="col s12">
+            {% if error %}
+                <p class="red-text error center-align">{{ error }}</p>
+            {% endif %}
+        </div>
     </section>
 </div>
 
@@ -53,10 +58,6 @@
 {#    <h2>Weather in {{ city }}</h2>#}
 {#    <p>Temperature: {{ temperature }}°C</p>#}
 {#    <p>Condition: {{ condition }}</p>#}
-{#{% endif %}#}
-{#{% if form.errors %}#}
-{#    <p class="error">Please correct the errors below:</p>#}
-{#    {{ form.errors }}#}
 {#{% endif %}#}
 
 

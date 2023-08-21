@@ -4,9 +4,15 @@ import requests
 
 
 def get_weather_by_city(request):
-    # return HttpResponse(city)
-    city = request.GET.get("city")
-    if city is not None:
+    city = request.GET.get("city")[0]
+    context = {
+        'city': city,
+        'error': '',
+        # 'temperature': weather_data['current']['temp_c'],
+        # 'condition': weather_data['current']['condition']['text'],
+    }
+
+    if context['city'] is not None:
         try:
             # TODO get key from settings
             api_key = 'settings.WEATHER_API_KEY'
@@ -21,13 +27,7 @@ def get_weather_by_city(request):
                 print(f'Description: {desc}')
             else:
                 raise Exception("Sorry, request data error")
-        except:
-            print("An exception occurred")
+        except Exception as error:
+            context['error'] = error
 
-    context = {
-        'city': city,
-        # 'temperature': weather_data['current']['temp_c'],
-        # 'condition': weather_data['current']['condition']['text'],
-    }
-
-    return render(request, 'weather/weather.html', {'city': context})
+    return render(request, 'weather/weather.html', context)
