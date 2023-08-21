@@ -13,7 +13,6 @@ def get_weather_by_city(request):
             api_url = 'settings.WEATHER_API_URI'
 
             response = requests.get(api_url, params={'key': api_key, 'q': city})
-            weather_data = response.json()
             if response.status_code == 200:
                 data = response.json()
                 temp = data['main']['temp']
@@ -21,7 +20,7 @@ def get_weather_by_city(request):
                 print(f'Temperature: {temp} K')
                 print(f'Description: {desc}')
             else:
-                raise Exception("Sorry, something went wrong")
+                raise Exception("Sorry, something went wrong, can not get the data")
         except:
             print("An exception occurred")
 
