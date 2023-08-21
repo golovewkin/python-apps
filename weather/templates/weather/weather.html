@@ -37,29 +37,16 @@
             </div>
         </form>
         <div class="col s12">
+            {% if temp %}
+                <h3 class="center-align">Temperature in {{ city }}: {{ temp }} °C</h3>
+            {% endif %}
+        </div>
+        <div class="col s12">
             {% if error %}
                 <p class="red-text error center-align">{{ error }}</p>
             {% endif %}
         </div>
     </section>
 </div>
-
-{#<p>{% url 'city' city %}</p>#}
-{#{% if city is None %}#}
-{#    <h2>choose a city</h2>#}
-{#{% else %}#}
-{#    <h2>choose a city else</h2>#}
-{#{% endif %}#}
-{#<form method="get" action="">#}
-{#    {{ form.as_p }}#}
-{#    <button type="submit">Get Weather</button>#}
-{#</form>#}
-{#{% if city %}#}
-{#    <h2>Weather in {{ city }}</h2>#}
-{#    <p>Temperature: {{ temperature }}°C</p>#}
-{#    <p>Condition: {{ condition }}</p>#}
-{#{% endif %}#}
-
-
 </body>
 </html>
